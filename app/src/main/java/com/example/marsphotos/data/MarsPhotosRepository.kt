@@ -17,6 +17,7 @@ package com.example.marsphotos.data
 
 import com.example.marsphotos.model.MarsPhoto
 import com.example.marsphotos.network.MarsApiService
+import javax.inject.Inject
 
 /**
  * Repository that fetch mars photos list from marsApi.
@@ -29,7 +30,7 @@ interface MarsPhotosRepository {
 /**
  * Network Implementation of Repository that fetch mars photos list from marsApi.
  */
-class NetworkMarsPhotosRepository(
+class NetworkMarsPhotosRepository @Inject constructor(
     private val marsApiService: MarsApiService
 ) : MarsPhotosRepository {
     /** Fetches list of MarsPhoto from marsApi*/
