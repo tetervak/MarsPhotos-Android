@@ -13,13 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.marsphotos.fake
+package com.example.marsphotos.data
 
-import com.example.marsphotos.data.MarsPhotosRepository
 import com.example.marsphotos.model.MarsPhoto
 
-class FakeNetworkMarsPhotosRepository : MarsPhotosRepository{
-    override suspend fun getMarsPhotos(): List<MarsPhoto> {
-        return FakeDataSource.photosList
-    }
+/**
+ * Repository that fetch mars photos list from marsApi.
+ */
+interface MarsRepository {
+    /** Fetches list of MarsPhoto from marsApi */
+    suspend fun getMarsPhotos(): List<MarsPhoto>
 }
+

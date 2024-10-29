@@ -1,6 +1,5 @@
 package com.example.marsphotos.data
 
-import com.example.marsphotos.network.MarsApiService
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
@@ -13,7 +12,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DataModule {
+object RetrofitModule {
 
     private val baseUrl = "https://android-kotlin-fun-mars-server.appspot.com/"
 
@@ -30,11 +29,4 @@ object DataModule {
     @Singleton
     fun provideRetrofitService(retrofit: Retrofit): MarsApiService =
         retrofit.create(MarsApiService::class.java)
-
-    @Provides
-    @Singleton
-    fun provideRepository(service: MarsApiService): MarsPhotosRepository =
-        NetworkMarsPhotosRepository(service)
-
-
 }
