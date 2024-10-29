@@ -10,7 +10,7 @@ import dagger.hilt.components.SingletonComponent
 abstract class RepositoryModule {
 
     @Binds
-    abstract fun pagedReposRepository(
+    abstract fun bindMarsRepository(
         repository: NetworkMarsRepository
     ): MarsRepository
 }
